@@ -171,14 +171,14 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex-1 flex items-center justify-center bg-void-950 rounded-xl p-4 min-h-[16rem]">
+              <div className="flex-1 flex items-center justify-center bg-void-950 rounded-xl p-4 min-h-[16rem] overflow-hidden">
                 {loading ? (
                   <div className="flex flex-col items-center gap-3 text-slate-500">
                     <div className="w-8 h-8 border-2 border-violet-450 border-t-transparent rounded-full animate-spin" />
                     <span className="text-sm">Tracing vectors...</span>
                   </div>
                 ) : svgString ? (
-                  <div className="w-full h-full max-h-80 flex items-center justify-center" dangerouslySetInnerHTML={{ __html: svgString }} />
+                  <img src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgString)}`} alt="Vectorized" className="max-w-full max-h-full object-contain" />
                 ) : (
                   <span className="text-sm text-slate-600">No result</span>
                 )}
